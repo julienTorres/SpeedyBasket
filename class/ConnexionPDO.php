@@ -16,6 +16,7 @@ class ConnexionPDO {
                             $this->pass, 
                             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
                             );
+//Renvoi un message d'erreur si la connection échoue
 	}catch(Exception $e){
 		die('Erreur : '.$e->getMessage());
 	}
