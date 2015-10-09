@@ -11,8 +11,7 @@ class DataModel {
      /**
       * Permet de trouver toutes les lignes de commande  d'une commande grace a son id
       * @param int $idCommande
-      * @return array [a_designation, a_pht, qte_cmde ,t_taux, a_quantite_stock, url_image  
-                FROM tb_article, tb_ligne_commande, tb_commande,tb_tva ]
+      * @return array [a_designation, a_pht, qte_cmde ,t_taux, a_quantite_stock, url_image]
       */   
     public function getLignesCommande($idCommande) {
         $sql =  "
