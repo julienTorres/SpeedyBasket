@@ -1,8 +1,7 @@
- @@ -1,322 +0,0 @@
 <?php
 
 /**
- * Classe regroupant les appels à la base de données.
+ * Classe regroupant les appels Ã  la base de donnÃ©es.
  *
  * @author iota
  */
@@ -48,7 +47,7 @@ class DataModel {
         return $resultat;
     }
     /**
-     * Permet de trouver un ou des articles par mot cl�
+     * Permet de trouver un ou des articles par mot clé
      * @param String $motCle
      * @return array[a_designation]
      */
@@ -72,7 +71,7 @@ class DataModel {
     }
     
     /**
-     * Permet de cr�er une nouvelle commande
+     * Permet de créer une nouvelle commande
      * @return boolean
      */
     public function createCommande() {
@@ -85,7 +84,7 @@ class DataModel {
     }
     
     /**
-     * Permet de trouver l'id de la derniére commande créée
+     * Permet de trouver l'id de la derniÃ©re commande crÃ©Ã©e
      * @return array [id_commande ]
      */
     public function getIdNewCommande() {
@@ -99,7 +98,7 @@ class DataModel {
     }
     
     /**
-     * Permet de créer une nouvelle ligne de commande
+     * Permet de crÃ©er une nouvelle ligne de commande
      * @param int $idcommande
      * @param int $idarticle
      * @param int $quantiteCommandee
@@ -130,7 +129,7 @@ class DataModel {
         return  $result->fetch();
     }
     /**
-     * Permet de créer un nouveau client insert dans la table personne et la table client
+     * Permet de crÃ©er un nouveau client insert dans la table personne et la table client
      * @param String $nom
      * @param String $prenom
      * @param String $ville
@@ -186,7 +185,7 @@ class DataModel {
     }
     /**
      * Permet de valider une commande en ajoutant une date de retrait, un id client 
-     * et en passant le statut de la commande à validée
+     * et en passant le statut de la commande Ã  validÃ©e
      * @param int $idcommande
      * @param date $dateRetrait
      * @param int $idPersonne
@@ -201,7 +200,7 @@ class DataModel {
         return true ;
     }
     /**
-     * Met a jour la quantité en stock d'un produit en fonction de la quantité commandée
+     * Met a jour la quantitÃ© en stock d'un produit en fonction de la quantitÃ© commandÃ©e
      * @param int $idcommande
      * @param int $idarticle
      * @param int $quantiteCommandee
@@ -217,10 +216,10 @@ class DataModel {
         return  true;
     }
     /**
-     * Regarde si la ligne de commande existe en vue de la créer ou de changer la quantité d'article
+     * Regarde si la ligne de commande existe en vue de la crÃ©er ou de changer la quantitÃ© d'article
      * @param int $idcommande
      * @param int $idarticle
-     * @return boolean true si la ligne existe false si elle est a créer
+     * @return boolean true si la ligne existe false si elle est a crÃ©er
      */
     public function checkLigneCommande($idcommande, $idarticle) {
         $sql="SELECT * FROM `tb_ligne_commande` "
@@ -277,7 +276,7 @@ class DataModel {
         return true ;
     }
     /**
-     * Obtention de la quantit�e en stock pour un article donn�
+     * Obtention de la quantitée en stock pour un article donné
      * @param int $idArticle
      * @return int a_quantite_stock
      */
@@ -305,7 +304,7 @@ class DataModel {
         }
         
         /**
-         * Obtention de l'historique des commandes pour un client donn�
+         * Obtention de l'historique des commandes pour un client donné
          * @param int $idClient
          * @return int id_commande
          */
