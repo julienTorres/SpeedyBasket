@@ -21,30 +21,27 @@ $result = $dm->getLignesCommande($idCommande);
 
     </head>
     <body>
+        
+        <table>
+           <thead>
+                <tr>
+                    <th>Désignation</th>
+                    <th>Quantité commandée</th> 
+                    <th>Prix unitaire</th>
+                    <th>Prix HT</th>
+                    <th>Taux TVA</th>
+                    <th>Prix TTC</th>
+                    <th>URL Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                echo $result;
+                ?>
+            </tbody>
 
-        <div class="container">
-            <div class="col s10 offset-s1">
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Désignation</th>
-                            <th>Prix HT</th>
-                            <th>Quantité commandée</th>
-                            <th>Taux TVA</th>
-                            <th>Quantité en stock</th>
-                            <th>URL Image</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        echo $result;
-                        ?>
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
+        </table>
+        
 
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

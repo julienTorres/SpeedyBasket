@@ -141,7 +141,7 @@ class Commande {
         return $i->getIdNewCommande();
     }
     
-    /** Crée un cookie pour stocker l'identifiant de la commande pour 48h.
+    /** Créé un cookie pour stocker l'identifiant de la commande pour 48h.
      * 
      */
     public function createCookie() {
@@ -153,13 +153,13 @@ class Commande {
      * @return bool true if cookie exists, false otherwise
      */
     public function checkCookie() {
-        return isset($_COOKIE['SpeedyMarketCookie']);
+        return isset(filer_input(\INPUT_COOKIE, 'SpeedyMarketCookie')) ? true : false;
     }
-
+    
     public function updateCookie() {
         // ça n'a pas de sens de vouloir modifier le cookie
         // pour stocker l'id client, il faut un nouveau cookie
-        // changer la valeur du premier cookie reviendrait à modifier la commande
+        // changer la valeur du premier cookie reviendrai à modifier la commande
         // liée à ce compte
         // est-ce ce que l'on souhaite ?
     }
