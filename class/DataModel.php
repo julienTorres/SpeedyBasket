@@ -10,18 +10,18 @@ class DataModel {
      /**
       * Permet de trouver toutes les lignes de commande  d'une commande grace a son id
       * @param int $idCommande
-      * @return array [a_designation, a_pht, qte_cmde ,t_taux, a_quantite_stock, url_image  
-                FROM tb_article, tb_ligne_commande, tb_commande,tb_tva ]
+      * @return array [a_designation, a_pht, qte_cmde ,t_taux, a_quantite_stock, url_image ]
       */   
     public function getLignesCommande($idCommande) {
         $sql =  "
-                SELECT a_designation, a_pht, qte_cmde ,t_taux, a_quantite_stock, url_image  
-                FROM tb_article, tb_ligne_commande, tb_commande,tb_tva 
-                WHERE tb_article.id_article = tb_ligne_commande.id_article
-                AND tb_ligne_commande.id_commande = tb_commande.id_commande
-                AND tb_tva.id_tva = tb_article.id_tva
-                AND tb_ligne_commande.id_commande = ".$idCommande
-                ;
+                $sql= "SELECT a_designation, qte_cmde , a_quantite_stock, a_pht, t_taux, url_image, t_libelle  
+               FROM tb_article, tb_ligne_commande, tb_commande,tb_tva 
+               WHERE tb_article.id_article = tb_ligne_commande.id_article
+               AND tb_ligne_commande.id_commande = tb_commande.id_commande
+               AND tb_tva.id_tva = tb_article.id_tva
+               AND tb_ligne_commande.id_commande = ".$idCommande
+               ;
+                
         
         $i = ConnexionPDO::getInstance();
         $req = $i->prepare($sql);
