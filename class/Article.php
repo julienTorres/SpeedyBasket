@@ -1,7 +1,8 @@
 <?php
+include_once 'includes/functions.php';
 
 /**
- * Classe représentant un article.
+ * Classe reprï¿½sentant un article.
  *
  * @author julienTorres
  */
@@ -23,22 +24,22 @@ class Article
     private $prixHT;
 
     /**
-     * @var string la description détaillée de l'article
+     * @var string la description dï¿½taillï¿½e de l'article
      */
     private $description;
 
     /**
-     * @var int la quantité d'articles disponible en stock
+     * @var int la quantitï¿½ d'articles disponible en stock
      */
     private $quantiteStock;
 
     /**
-     * @var bool 1 si le produit est commercialisé, 0 sinon
+     * @var bool 1 si le produit est commercialisï¿½, 0 sinon
      */
     private $visible;
 
     /**
-     * @var int l'identifiant de la catégorie d'appartenance du produit
+     * @var int l'identifiant de la catï¿½gorie d'appartenance du produit
      */
     private $categorie;
 

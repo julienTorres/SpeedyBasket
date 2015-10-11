@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/GIT/SpeedyBasket/panier.php</file>
-            <file>file:/H:/GIT/SpeedyBasket/class/DataModelOld.php</file>
-            <file>file:/H:/GIT/SpeedyBasket/class/DataModel.php</file>
-            <file>file:/H:/GIT/SpeedyBasket/index.php</file>
-            <file>file:/H:/GIT/SpeedyBasket/class/Commande.php</file>
+            <file>file:/E:/GIT/SpeedyBasket/index.php</file>
+            <file>file:/E:/GIT/SpeedyBasket/class/Commande.php</file>
+            <file>file:/E:/GIT/SpeedyBasket/class/DataModel.php</file>
+            <file>file:/E:/GIT/SpeedyBasket/panier.php</file>
+            <file>file:/E:/GIT/SpeedyBasket/includes/functions.php</file>
+            <file>file:/E:/GIT/SpeedyBasket/class/LigneCommande.php</file>
         </group>
     </open-files>
 </project-private>

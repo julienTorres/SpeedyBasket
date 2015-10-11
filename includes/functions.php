@@ -1,8 +1,3 @@
-<!-- 
--	functions.php
--	@julientorres
--
--->
 <?php
 
     function __autoload($class_name) {

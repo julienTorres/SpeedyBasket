@@ -1,26 +1,51 @@
 <?php
 include_once 'includes/functions.php';
-
 $dm = new DataModel();
+$commande = new Commande();
+
+$commandeValidee = '';
+if (isset($_GET['valider'])) {
+    $commandeValidee = 'Votre commande est validée ! <br />A bientôt au magasin.';
+    $commande->validerCommande($_COOKIE['SpeedyMarketCookie']);
+}
+
+if (isset($_POST['article'])) {
+    $idCommande = null;
+    if (!($commande->checkCookie())) {
+        $idCommande = $commande->createCommande();
+    }
+    $commande->createLigneCommande($_POST['article'], $_POST['qteCommandee'], $idCommande); 
+}
+
+$idCommande = $commande->checkCookie() ? $_COOKIE['SpeedyMarketCookie'] : null;
+if(!empty($commandeValidee)){
+    $idCommande = null;
+}
+if (!is_null($idCommande) || isset($_POST['article'])) {
+    $synthesePanier = $commande->afficherResumeCommande($idCommande);
+    $nbItems = $synthesePanier['nbItems'];
+    $totalTTC = $synthesePanier['totalTTC'];
+}
+
 $result = $dm->getAllArticles();
 
+include_once 'includes/header.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <!--Import Google Icon Font-->
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta charset="utf-8" />
-
-    </head>
-    <body>
-
+        <div class="row">
+            <div class="commandeValidee col s4 offset-s2">
+                <?php echo $commandeValidee; ?>
+            </div>
+            <div class="synthese-panier col s2 offset-s4">
+                <h4>Panier</h4>
+                <div>
+                    Nombre d'articles : <?php echo is_null($idCommande)? '' : $nbItems; ?>
+                    <br />
+                    Total ttc : <?php echo is_null($idCommande)? '' : number_format((float)$totalTTC, 2, ',', ''); ?> €
+                </div>
+                <a href="panier.php">Accéder au panier</a>
+            </div>
+        </div>
 
         <table>
             <thead>
@@ -40,8 +65,6 @@ $result = $dm->getAllArticles();
             </tbody>
         </table>
 
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-</html>
+<?php
+    include_once 'includes/footer.php';
+?>

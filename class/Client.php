@@ -1,5 +1,6 @@
 <?php
 include_once 'connexionPDO.php';
+include_once 'includes/functions.php';
 
 
 class Client{

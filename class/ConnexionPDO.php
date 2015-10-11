@@ -1,4 +1,5 @@
 <?php
+include_once 'includes/functions.php';
 
 class ConnexionPDO {
     private $host = "localhost";

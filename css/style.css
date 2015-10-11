@@ -1,0 +1,22 @@
+.categorie {
+    font-variant: small-caps;
+}
+
+.synthese-panier {
+    border: 2px solid #333;
+    padding: 10px !important;
+}
+
+.synthese-panier h4{
+    margin-top: 0px;
+}
+
+.validation-commande {
+    margin-top: 20px;
+    
+}
+
+.commandeValidee {
+    min-height: 1px;
+}
+

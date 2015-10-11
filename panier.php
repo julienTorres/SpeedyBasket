@@ -1,26 +1,20 @@
 <?php
 include_once 'includes/functions.php';
 
-$idCommande = 1;
-$dm = new DataModel();
-$result = $dm->getLignesCommande($idCommande);
+$commande = new Commande();
+$idCommande = $commande->checkCookie() ? $_COOKIE['SpeedyMarketCookie'] : null;
+    
+$result = '';
+if (!is_null($idCommande)) {
+    $result = $commande->createDetailCommande($idCommande);
+}
 
+include_once 'includes/header.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <!--Import Google Icon Font-->
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta charset="utf-8" />
-
-    </head>
-    <body>
+<div class="col s2">
+    <a href="index.php">Retourner dans les rayons</a>
+</div>
 
         <div class="container">
             <div class="col s10 offset-s1">
@@ -31,7 +25,7 @@ $result = $dm->getLignesCommande($idCommande);
                             <th>Désignation</th>
                             <th>Prix HT</th>
                             <th>Quantité commandée</th>
-                            <th>Taux TVA</th>
+                            <th>TVA</th>
                             <th>Quantité en stock</th>
                             <th>URL Image</th>
                         </tr>
@@ -46,8 +40,12 @@ $result = $dm->getLignesCommande($idCommande);
             </div>
         </div>
 
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-</html>
+<div class="row validation-commande">
+    <div class="col s2 offset-s10">
+        <a href="index.php?valider=true" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">done</i></a>
+    </div>
+</div>
+
+<?php
+    include_once 'includes/footer.php';
+?>
